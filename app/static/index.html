@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Olist Logistics Optimizer</title>
+<meta name="theme-color" content="#060A15">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div id="login" class="login hidden">
+  <form id="loginForm" class="login-card">
+    <div class="brand" style="padding:0 0 4px"><div class="mark"><span>O</span></div><div><b>Olist Logistics</b><small>OPTIMIZER</small></div></div>
+    <h2 style="margin:0;font-size:22px" data-i18n="signin">Sign in</h2>
+    <div class="field"><label data-i18n="username">Username</label><input name="username" autocomplete="username" required></div>
+    <div class="field"><label data-i18n="password">Password</label><input name="password" type="password" autocomplete="current-password" required></div>
+    <button class="primary" type="submit" data-i18n="signin">Sign in</button>
+    <div id="loginErr" class="err"></div>
+  </form>
+</div>
+<div id="app" class="layout hidden">
+  <aside class="side">
+    <div class="brand"><div class="mark"><span>O</span></div><div><b>Olist Logistics</b><small>OPTIMIZER</small></div></div>
+    <nav id="nav" class="nav"></nav>
+    <div class="side-foot">
+      <div id="whoami" class="muted sm"></div>
+      <button id="logout" class="ghost sm" data-i18n="logout">Sign out</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="top">
+      <div><div class="eyebrow" id="crumb"></div><h1 id="pageTitle"></h1></div>
+      <div class="top-actions">
+        <button class="ghost" id="cmdBtn"><span data-icon="search"></span><span class="muted sm">Ctrl K</span></button>
+        <button class="ghost" id="themeBtn" title="Theme"></button>
+        <button class="ghost" id="langBtn">العربية</button>
+        <span id="apiStatus" class="pill ok"><span class="dot pulse"></span> API</span>
+      </div>
+    </header>
+    <div id="view" class="view-enter"></div>
+  </main>
+</div>
+<div id="overlay"></div>
+<script src="/static/i18n.js"></script>
+<script src="/static/ui.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

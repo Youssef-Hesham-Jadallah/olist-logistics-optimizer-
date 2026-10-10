@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    env_file: [.env]
+    volumes:
+      - dbdata:/data
+      - ./olist_data:/data/olist_data:ro     # put the Olist CSVs here (optional; used by "Import from server folder")
+    restart: unless-stopped
+volumes:
+  dbdata:

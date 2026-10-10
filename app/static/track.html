@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Track your parcel</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/static/styles.css"></head>
+<body>
+<div style="max-width:980px;margin:0 auto;padding:22px 18px 60px">
+  <div class="top"><div class="brand" style="padding:0"><div class="mark"><span>O</span></div><div><b>Olist Logistics</b><small>PARCEL TRACKING</small></div></div>
+    <div class="top-actions"><button class="ghost" id="themeBtn"></button><button class="ghost" id="langBtn">العربية</button></div></div>
+  <div class="card hero" style="min-height:300px"><div class="txt"><h2><span class="grad" data-i18n="ship_to">Track your parcel</span></h2>
+    <form id="tf" class="row"><div class="field"><label data-i18n="enter_code">Enter tracking code</label><input id="code" class="mono" placeholder="ALP1A2B3C4D5E" required autocomplete="off"></div><button class="primary"><span data-icon="search"></span> <span data-i18n="track_btn">Track</span></button></form>
+    <div id="err" class="err"></div></div><canvas id="map"></canvas></div>
+  <div id="res"></div>
+  <p class="muted sm" style="text-align:center;margin-top:30px">Simulated carriers · demo data</p>
+</div>
+<script src="/static/i18n.js"></script><script src="/static/ui.js"></script><script src="/static/track.js"></script>
+</body></html>

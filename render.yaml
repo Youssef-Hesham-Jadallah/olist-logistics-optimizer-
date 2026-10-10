@@ -1,0 +1,16 @@
+# Render.com blueprint (verify against Render's current docs before use). SQLite needs a persistent disk -> single instance.
+services:
+  - type: web
+    name: olist-logistics-optimizer
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - { key: JWT_SECRET, generateValue: true }
+      - { key: WEBHOOK_SECRET, generateValue: true }
+      - { key: ADMIN_PASSWORD, sync: false }          # you type it in the dashboard
+      - { key: PUBLIC_BASE_URL, sync: false }         # e.g. https://your-app.onrender.com (used in tracking links)
+      - { key: APP_ENV, value: production }
+      - { key: DB_PATH, value: /data/logistics.db }
+      - { key: OLIST_DATA_DIR, value: /data/olist_data }
+    disk: { name: data, mountPath: /data, sizeGB: 2 }

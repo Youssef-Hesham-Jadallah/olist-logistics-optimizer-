@@ -1,0 +1,120 @@
+{
+  "generated_at": "2026-10-07T11:01:00",
+  "train_until": "2018-01-01",
+  "holdout_orders_evaluated": 5000,
+  "model_accuracy": {
+    "price": {
+      "r2": 0.5512755130905465,
+      "mae_brl": 6.011883701459783,
+      "bias_brl": -3.025533964095848,
+      "n": 54288
+    },
+    "price_previous_model": {
+      "r2": 0.4281382204280556,
+      "mae_brl": 7.222614299392112,
+      "bias_brl": -3.259586785063555,
+      "n": 54288
+    },
+    "eta": {
+      "holdout_n": 53594,
+      "p50_coverage": 0.5568347203045118,
+      "p90_coverage": 0.8836810090681793
+    },
+    "note": "Price: log-linear model (distance, weight, volume, value, destination) fitted on pre-cutoff orders; R2 is modest because Olist freight also depends on carrier/product factors not in the data, and 2018 freight drifted upward (negative bias). ETA P90 should cover ~90% of unseen orders."
+  },
+  "actual_history_same_orders": {
+    "avg_freight_paid_brl": 22.49,
+    "late_rate": 0.0872
+  },
+  "policies": {
+    "random": {
+      "total_cost_brl": 98164.11,
+      "avg_cost_brl": 19.63,
+      "avg_eta_p50_days": 9.95,
+      "expected_late_rate": 0.1099
+    },
+    "status_quo_single_carrier": {
+      "total_cost_brl": 95055.98,
+      "avg_cost_brl": 19.01,
+      "avg_eta_p50_days": 10.01,
+      "expected_late_rate": 0.1073
+    },
+    "cheapest": {
+      "total_cost_brl": 76451.85,
+      "avg_cost_brl": 15.29,
+      "avg_eta_p50_days": 10.47,
+      "expected_late_rate": 0.1202
+    },
+    "fastest": {
+      "total_cost_brl": 134379.8,
+      "avg_cost_brl": 26.88,
+      "avg_eta_p50_days": 7.47,
+      "expected_late_rate": 0.0461
+    },
+    "system_cost_with_deadline": {
+      "total_cost_brl": 93505.68,
+      "avg_cost_brl": 18.7,
+      "avg_eta_p50_days": 9.13,
+      "expected_late_rate": 0.0657
+    },
+    "system_expected_cost": {
+      "total_cost_brl": 93575.04,
+      "avg_cost_brl": 18.72,
+      "avg_eta_p50_days": 9.09,
+      "expected_late_rate": 0.0652
+    },
+    "system_balanced": {
+      "total_cost_brl": 110383.99,
+      "avg_cost_brl": 22.08,
+      "avg_eta_p50_days": 8.31,
+      "expected_late_rate": 0.0514
+    }
+  },
+  "gains": {
+    "system_cost_with_deadline_vs_status_quo": {
+      "cost_saving_pct": 1.6,
+      "late_rate_change_pp": -4.16,
+      "eta_p50_change_days": -0.88
+    },
+    "system_expected_cost_vs_status_quo": {
+      "cost_saving_pct": 1.6,
+      "late_rate_change_pp": -4.21,
+      "eta_p50_change_days": -0.92
+    },
+    "system_balanced_vs_status_quo": {
+      "cost_saving_pct": -16.1,
+      "late_rate_change_pp": -5.59,
+      "eta_p50_change_days": -1.7
+    },
+    "cheapest_vs_status_quo": {
+      "cost_saving_pct": 19.6,
+      "late_rate_change_pp": 1.29,
+      "eta_p50_change_days": 0.46
+    }
+  },
+  "nearest_source": {
+    "orders_evaluated": 1000,
+    "pct_orders_where_system_picks_different_seller": 53.9,
+    "avg_distance_km": {
+      "actual_seller": 552.9,
+      "system_pick": 464.9
+    },
+    "avg_price_brl": {
+      "actual_seller": 14.39,
+      "system_pick": 13.63
+    },
+    "avg_eta_p50_days": {
+      "actual_seller": 9.16,
+      "system_pick": 8.65
+    },
+    "assumption": "Olist data has no inventory: any seller that sold the product historically is assumed able to supply it."
+  },
+  "late_penalty_brl": 40.0,
+  "assumptions": [
+    "Expected-cost policy charges R$ 40 per expected late delivery (editable assumption, not measured).",
+    "Carriers are simulated; rate cards/ETAs calibrated on pre-cutoff Olist orders; per-carrier multipliers are assumptions.",
+    "Status quo = a single Alpha-like carrier (multipliers 1.0, so ~ historical averages).",
+    "Deadline = delivery date Olist actually promised the customer; late probability from a lognormal fitted to P50/P90.",
+    "No inventory or carrier capacity in this per-order comparison (capacity is handled in the batch optimizer)."
+  ]
+}
