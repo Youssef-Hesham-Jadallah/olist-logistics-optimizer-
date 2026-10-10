@@ -18,7 +18,7 @@ uvicorn app.main:app --reload                             # http://127.0.0.1:800
 ```
 First start creates `admin`. If `ADMIN_PASSWORD` is empty a random one is printed once in the log. Demo users (`operator/operator123`, `viewer/viewer123`) exist only with `SEED_DEMO_USERS=true`. `APP_ENV=production` refuses to start with weak/missing secrets. Docker: `docker compose up --build`.
 
-## What is new in v3
+## What is new in This Version
 | Area | What |
 |---|---|
 | **Expected cost** | New objective `expected_cost`: minimise `price + P(late) × late_penalty` (default R$ 40, editable per request/UI). Turns "reliability" into money. Works per order and in the batch MILP. |
