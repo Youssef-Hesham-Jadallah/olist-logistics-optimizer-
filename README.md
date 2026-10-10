@@ -1,6 +1,10 @@
-# Olist Logistics Optimizer — v3 "Control Room"
+# Olist Logistics Optimizer —  "Control Room"
 
-نظام لتحسين الشحن والتوصيل لـ Olist: بيقارن شركات الشحن على **المسار الفعلي**، بيختار **أقرب مصدر**، بيحسب **السعر** و**وقت التوصيل (P50/P90)** و**احتمال التأخير** و**التكلفة المتوقعة (سعر + التأخير بالفلوس)**، وبيعمل optimization لكل أوردر ولمجموعة أوردرات مع قيود السعة. فيه صفحة تتبع للعميل، وإشعارات، وبوليصة شحن بباركود، وواجهة عربي/إنجليزي (RTL) بثيم غامق/فاتح.
+A logistics optimization platform for Olist that evaluates shipping carriers based on actual delivery routes, selects the nearest fulfillment source, and estimates shipping costs, delivery times (P50/P90), and late-delivery risk.
+
+The platform supports single-order and batch optimization under capacity constraints, with an expected-cost model that combines shipping fees and the estimated financial impact of delays.
+
+Additional features include customer shipment tracking, notifications, barcode-enabled shipping labels, and a bilingual Arabic/English interface with RTL support and dark/light themes.
 
 > Carrier prices/ETAs are **simulated but calibrated on the real Olist 2016-2018 data** — not live carrier prices.
 
